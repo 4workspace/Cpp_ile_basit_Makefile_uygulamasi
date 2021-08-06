@@ -1,7 +1,8 @@
 Makefile, hazirlanmis olan programin kisaca yeniden derlenmesine olanak saglayarak, degisiklikleri algilayarak bu farkliliklari üzerinde derleme islemini gerçeklestiriyor. 
 Bu sayede programin derleme asamasi daha kisa sürmüs oluyor.
 
-Bu repoda Makefile adinda ki dosyada kutuphane ve main adinda .cpp formatinda iki dosya bulunuyor. Bunlar Makefile dosyasinda görüldügü gibi yazilir ve yürütüldügünde kutuphane.o ve main.o adinda dosyalar olusturur. program: ise bu .o dosyalarini birbirine baglayarak program.exe adinda ki çalistirilabilir dosyayi üretir.
+Bu repoda Makefile adinda ki dosyada kutuphane ve main adinda .cpp formatinda iki dosya bulunuyor. Bunlar Makefile dosyasinda görüldügü gibi yazilir ve yürütüldügünde
+kutuphane.o ve main.o adinda dosyalar olusturur. program: ise bu .o dosyalarini birbirine baglayarak program.exe adinda ki çalistirilabilir dosyayi üretir.
 /-----------------------------------------------------------------------------------------------------------------------------------------/
 program:kutuphane main						
 	g++ kutuphane.o main.o -o program
@@ -27,7 +28,8 @@ Yukarida ki bu klasörler sadece düzenli durmasi içindi. Istege bagli olarak y
 
 dosyalarimizi formatlarina göre ilgili klasöre attiktan sonra Makefile dosyamizda su degisiklikleri yapabiliriz. Asagida ki degisiklik su anlama gelir;
 kutuphane ve main için: .cpp dosyasi ./src/ klasöründe, ve olusacak .o dosyalarini da ./lib/ klasörüne ativer :)
-pogram için: program: kutuphane main, programin kutuphane ve maine bagli oldugu anlamina gelir.. olusan .o dosyalarini ./lib/ altinda ara ve bulup birlestiginde ise olusacak program.exe dosyasini da ./bin/ klasörüne at.
+pogram için: program: kutuphane main, programin kutuphane ve maine bagli oldugu anlamina gelir.. olusan .o dosyalarini ./lib/ altinda ara ve bulup birlestiginde
+ise olusacak program.exe dosyasini da ./bin/ klasörüne at.
 /-----------------------------------------------------------------------------------------------------------------------------------------/
 
 program:kutuphane main						
