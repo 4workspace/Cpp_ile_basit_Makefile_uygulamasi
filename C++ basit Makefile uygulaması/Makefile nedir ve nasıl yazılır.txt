@@ -20,7 +20,7 @@ Klasör konusunda ise,
 - bin: çalistirilabilir dosyalar (.exe) bin klasöründe bulunur.
 - src: kaynak dosyalari (.cpp) src klasöründe bulunur.
 - include: baslik dosyalari (.hpp) include kalsöründe bulunur. 
-- lib: kütüphane doslarini buraya koyabiliriz.
+- lib: obje doslarini ( .o ) buraya koyabiliriz.
 - doc: dökümanlarin bulundugu klasör
 Yukarida ki bu klasörler sadece düzenli durmasi içindi. Istege bagli olarak yazilabilir.
 
