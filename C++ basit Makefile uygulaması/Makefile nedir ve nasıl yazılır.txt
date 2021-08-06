@@ -1,0 +1,66 @@
+Makefile, hazirlanmis olan programin kisaca yeniden derlenmesine olanak saglayarak, degisiklikleri algilayarak bu farkliliklari üzerinde derleme islemini gerçeklestiriyor. Bu sayede programin derleme asamasi daha kisa sürmüs oluyor.
+
+Bu repoda Makefile adinda ki dosyada kutuphane ve main adinda .cpp formatinda iki dosya bulunuyor. Bunlar Makefile dosyasinda görüldügü gibi yazilir ve yürütüldügünde kutuphane.o ve main.o adinda dosyalar olusturur. program: ise bu .o dosyalarini birbirine baglayarak program.exe adinda ki çalistirilabilir dosyayi üretir.
+/-----------------------------------------------------------------------------------------------------------------------------------------/
+program:kutuphane main						
+	g++ kutuphane.o main.o -o program
+
+kutuphane:
+	g++ -c kutuphane.cpp -o kutuphane.o
+	
+main:
+	g++ -c main.cpp -o main.o
+	
+/-----------------------------------------------------------------------------------------------------------------------------------------/	
+program, kutuphane ve main isimleri bizim belirledigimiz isimlerdir, istenildigi gibi isimler verilebilir.
+
+Klasör konusunda ise, 
+- bin: çalistirilabilir dosyalar (.exe) bin klasöründe bulunur.
+- src: kaynak dosyalari (.cpp) src klasöründe bulunur.
+- include: baslik dosyalari (.hpp) include kalsöründe bulunur. 
+- lib: kütüphane doslarini buraya koyabiliriz.
+- doc: dökümanlarin bulundugu klasör
+Yukarida ki bu klasörler sadece düzenli durmasi içindi. Istege bagli olarak yazilabilir.
+
+/******************************************************************************************************************************************/
+
+dosyalarimizi formatlarina göre ilgili klasöre attiktan sonra Makefile dosyamizda su degisiklikleri yapabiliriz. Asagida ki degisiklik su anlama gelir;
+kutuphane ve main için: .cpp dosyasi ./src/ klasöründe, ve olusacak .o dosyalarini da ./lib/ klasörüne ativer :)
+pogram için: program: kutuphane main, programin kutuphane ve maine bagli oldugu anlamina gelir.. olusan .o dosyalarini ./lib/ altinda ara ve bulup birlestiginde ise olusacak program.exe dosyasini da ./bin/ klasörüne at.
+/-----------------------------------------------------------------------------------------------------------------------------------------/
+
+program:kutuphane main						
+	g++ ./lib/kutuphane.o ./lib/main.o -o ./bin/program
+
+kutuphane:
+	g++ -I "./include" -c ./src/kutuphane.cpp -o ./lib/kutuphane.o
+	
+main:
+	g++ -I "./include" -c ./src/main.cpp -o ./lib/main.o
+
+
+	
+/********************************************************************************************************************************************/
+Derlenen ve .exe dosyasi olusturuldukran sonra söyle bir güncelleme ile derlenen dosyanin ayni zamanda çalistirilmasi saglanir.
+program, "kutuphane" ve "maine" bagli (yani "kutuphane" ve "main" çalistirildiktan sonra program'i çalistir.)
+derleVeCaalistir, "program" ve "calistir"a bagli (yani "program" ve "calistir"  çalistirildiktan sonra çalistir.)
+/-----------------------------------------------------------------------------------------------------------------------------------------/
+
+derleVeCalistir:program calistir
+
+program:kutuphane main
+	g++ ./lib/kutuphane.o ./lib/main.o -o ./bin/program
+
+kutuphane:
+	g++ -I "./include" -c ./src/kutuphane.cpp -o ./lib/kutuphane.o
+	
+main:
+	g++ -I "./include" -c ./src/main.cpp -o ./lib/main.o
+	
+calistir:
+	./bin/program.exe
+
+
+
+
+NOT: Unutursan su videoyu izle: https://www.youtube.com/watch?v=TQzS6L6zAs0
